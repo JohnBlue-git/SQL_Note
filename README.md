@@ -1,5 +1,5 @@
 
-## select top distinct from where
+## Select / Top / Distinct / From / Where / Order by
 ```sql
 SELECT TOP(100) ... FROM [...].[...].[table]
 WHERE commodity
@@ -10,9 +10,13 @@ SELECT 'DataSource'as'data_source', id, age FROM Customers;
 
 SELECT DISTINCT ...(要選的所有欄位)
 國外也常用GROUP(選定欄位)
+
+SELECT ID FROM COMPANY
+WHERE EMPLOYEES >= 10000
+ORDER BY ID ASC|DESC;
 ```
 
-## insert update delete truncate
+## Insert / Update / Delete / Truncate
 ```sql
 INSERT @another
 SELECT … FROM @this
@@ -27,7 +31,7 @@ WHERE 日期=@today
 TRNCATE TABLE […]
 ```
 
-## define & cast & getdate
+## Define / Cast / GetDate
 ```sql
 -- date datetime smalldatetime
 
@@ -44,8 +48,8 @@ SELECT DATEADD(hour, @hour_start, CAST(CAST(GETDATE() AS DATE) AS SMALLDATETIME)
 SELECT … FROM … WHERE update_date>'2023-11-13 10:00:00' AND update_date<'2023-11-13 14:30:00'
 ```
 
-## create
-```console
+## Create
+```sql
 IF OBJECT_ID(‘…A…’, ‘U’) IS NULL
 BEGIN
 	USE […B…]
@@ -60,6 +64,15 @@ BEGIN
 	) WITH (PAD_INDEX = OFF, STATISTICS….
 	) ON [PRIMARY]
 END
+```
+
+## Union
+```sql
+SELECT column_one, column_two,..column_N INTO Table_name FROM table_name
+UNION
+SELECT column_one,column_two,column_three,.. column_N FROM table_name;
+
+https://www.geeksforgeeks.org/how-to-append-two-tables-and-put-the-result-in-a-table-in-sql/
 ```
 
 ## monitor DB
