@@ -75,6 +75,14 @@ SELECT column_one,column_two,column_three,.. column_N FROM table_name;
 https://www.geeksforgeeks.org/how-to-append-two-tables-and-put-the-result-in-a-table-in-sql/
 ```
 
+## INNER JOIN / AS / BETWEEN
+```sql
+SELECT DISTINCT
+$"'{DB.dataSource}' AS [DataSource], T1.[commodity], T1.[month]"
+FROM [future1].[dbo].[index_hopt_open] AS T1 INNER JOIN [future1].[dbo].[index_commodity] AS T2
+WHERE T1.[trade_date] BETWEEN DATEADD(DAY,-31,convert(varchar(10),'2024-01-15',112)) AND '2024-01-15'
+```
+
 ## monitor DB
 https://blog.darkthread.net/blog/detect-column-update-in-trigger/#google_vignette
 
